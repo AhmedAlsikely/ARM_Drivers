@@ -1,51 +1,6 @@
 #include "STM32F4xx_HAL_RCC.h"
 
 static uint32_t RCC_CalculateSysClkFreq(uint32_t pllSource, uint32_t pllM, uint32_t pllN, uint32_t pllP);
-Status_t RCC_OscConfig(RCC_Cfg *RCC_InitStruct){
-    Status_t RetStatus = R_OK;
-    if(NULL== RCC_InitStruct)
-    {
-        RetStatus = NULL_POINTER;
-    }
-    else
-    {
-        /*------------------------------- HSE Configuration -------------------- */
-        /*============================== HSE External Source =================== */
-        if(RCC_OSCILLATORTYPE_HSE_EC == RCC_InitStruct->SystemClockSourse)
-        {
-            SET_BIT(RCC->CR, 16);
-            SET_BIT(RCC->CR, 18); /* Enable ByPass*/
-        }
-        // else if()
-        // {
-
-        // }
-        // if()
-        // {
-
-        // }
-        // else if()
-        // {
-
-        // }
-        // if()
-        // {
-
-        // }
-        // else if()
-        // {
-
-        // }
-        // if()
-        // {
-
-        // }
-        // else if()
-        // {
-
-        // }
-    }
-}
 
 Status_t RCC_Init(RCC_Cfg *Rcc_val){
     Status_t RetStatus = R_OK;
