@@ -15,6 +15,11 @@
 #define SET_BIT(REG,BIT)   ((REG) |= (0x1UL << BIT))
 #define CLEAR_BIT(REG,BIT) ((REG) &= ~(0x1UL << BIT))
 #define TOGGLE_BIT(REG,BIT) ((REG) ^= (0x1UL << BIT))
+#define READ_BIT(REG, POS, MASK) ((REG >> POS) & (MASK))
+
+#define READ_REG(REG) ((REG))
+#define WRITE_BIT(REG, VAL) ((REG) = (VAL))
+#define MODIFY_REG(REG, CLEARMASK, SETMASK) WRITE_BIT((REG), (((READ_REG(REG)) & (~(CLEARMASK))) | (SETMASK)))
 /*--------------------------------- Data Types ----------------------------------------*/
 
 typedef unsigned char      uint8_t ;
@@ -35,6 +40,7 @@ typedef enum{
 	NULL_POINTER,
 	WRONG_PARAMETER,
 	NOT_READY,
+	OUT_OF_RANGE,
 	WrongPLLM_PARAMETER,
 	WrongPLLN_PARAMETER,
 	WrongPLLP_PARAMETER,
